@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Cars</string>
+    <string name="car_model">car model</string>
+    <string name="input_password">Input password:</string>
+    <string name="input_password_again">Input password again:</string>
+    <string name="password">password</string>
+    <string name="input_firstname">Input firstName:</string>
+    <string name="firstname">firstname</string>
+    <string name="input_lastname">Input lastName:</string>
+    <string name="lastname">lastname</string>
+    <string name="date">Date</string>
+    <string name="day_month_year">day/month/year</string>
+    <string name="set_date">Set date:</string>
+    <string name="input_email">Input email:</string>
+    <string name="email">email</string>
+    <string name="next">next</string>
+    <string name="save">save</string>
+    <string name="search">search</string>
+    <string name="filters">filters</string>
+    <string name="change_car_model">Change car model:</string>
+    <string name="title">title</string>
+    <string name="username">username</string>
+    <string name="register">Register</string>
+    <string name="login">Login:</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="already_registered_login">Already registered? Login</string>
+    <string name="don_t_have_account_sign_up">Don\'t have account? Sign up</string>
+</resources>

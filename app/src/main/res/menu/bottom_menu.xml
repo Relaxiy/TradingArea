@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/posts"
+        android:icon="@drawable/ic_main_posts_list"
+        android:title=""
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/messages"
+        android:icon="@drawable/ic_message"
+        android:title=""
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/add_post_button"
+        android:icon="@drawable/ic_add_post"
+        android:title=""
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/favourites_button"
+        android:icon="@drawable/ic_favourites"
+        android:title=""
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title=""
+        android:orderInCategory="1"/>
+
+</menu>

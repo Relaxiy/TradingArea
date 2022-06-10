@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchFieldStyle" >
+        <item name="android:background">@drawable/circle_background</item>
+    </style>
+    <style name="MessageOutgoingStyle">
+        <item name="android:background">@drawable/message_outgoing_background</item>
+    </style>
+    <style name="MessageIncomingStyle">
+        <item name="android:background">@drawable/message_incoming_background</item>
+    </style>
+    <style name="PostStyle">
+        <item name="android:background">@drawable/post_background</item>
+    </style>
+    <style name="RightInputFieldStyle">
+        <item name="android:background">@drawable/right_input_field_background</item>
+    </style>
+    <style name="LeftInputFieldStyle">
+        <item name="android:background">@drawable/left_input_field_background</item>
+    </style>
+    <style name="RightFieldStyle">
+        <item name="android:background">@drawable/right_field_background</item>
+    </style>
+    <style name="LeftFieldStyle">
+        <item name="android:background">@drawable/left_field_background</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_lite_color">
+
+    <LinearLayout
+        android:id="@+id/main_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/addCarRecycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/image_item" />
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/custom3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="100dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:textSize="16sp"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:text="Title:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            style="@style/RightFieldStyle"
+            android:textColor="@color/custom3"
+            android:gravity="center" />
+        <EditText
+            android:id="@+id/addTitle"
+            style="@style/RightInputFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:hint="Title"
+            android:textColor="@color/custom3"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:textSize="16sp"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:text="Holder:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/addName"
+            style="@style/LeftInputFieldStyle"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:hint="Holder"
+            android:inputType="textPersonName"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            style="@style/LeftFieldStyle"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/custom3" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/addDescription"
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="Description"
+            android:paddingStart="20dp"
+            android:textColor="@color/custom4"
+            tools:ignore="RtlSymmetry" />
+        <View
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/custom3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:textSize="16sp"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:text="Price (BYR):" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <EditText
+            android:id="@+id/addPrice"
+            style="@style/RightInputFieldStyle"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:hint="11111"
+            android:inputType="number"
+            android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="16sp"
+                style="@style/RightFieldStyle"
+                android:textColor="@color/custom3"
+                android:gravity="center"
+                android:layout_gravity="end" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:textSize="16sp"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:text="Email:" />
+
+        <EditText
+            android:id="@+id/addEmail"
+            style="@style/LeftInputFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:hint="email@example.com"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/custom3"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="24dp"
+            android:clickable="false"
+            android:textSize="16sp"
+            android:textColor="@color/custom3"
+            android:gravity="center"
+            android:text="Phone number:" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/LeftInputFieldStyle"
+            android:id="@+id/addPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="phone"
+            android:gravity="center"
+            android:inputType="phone"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sendPost"
+            android:background="@drawable/login_button_background"
+            android:layout_width="224dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="place"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
