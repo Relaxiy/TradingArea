@@ -14,6 +14,6 @@ interface UserPostsDao {
     @Update
     suspend fun updateUserPost(userPostEntity: UserPostEntity)
 
-    @Delete
-    suspend fun deleteUserPost(userPostEntity: UserPostEntity)
+    @Query("DELETE FROM user_posts WHERE id = (:id)")
+    suspend fun deleteUserPost(id: String)
 }

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.trading.CarApplication
+import com.example.trading.TradingApplication
 import com.example.trading.app.presentation.personalPage.UserSharedViewModel
 import com.example.trading.databinding.ActivityRegisterBinding
 import com.example.trading.registration.presentation.login.LoginActivity
@@ -13,6 +13,7 @@ import com.example.trading.registration.presentation.register.actionSelector.Reg
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
 import com.example.trading.utils.ext.dialog
 import com.example.trading.utils.ext.openActivity
+import com.example.trading.utils.ext.parsePhoneNumber
 import kotlinx.android.synthetic.main.activity_register.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private val registerActivityViewModel: RegisterActivityViewModel by viewModels {
-        CarApplication.appComponentWithSharedViewModel.viewModelsFactory()
+        TradingApplication.appComponentWithSharedViewModel.viewModelsFactory()
     }
 
     @Inject
@@ -38,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.inputPhoneNumber.parsePhoneNumber()
-        CarApplication.appComponentWithSharedViewModel.inject(this)
+        TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
 
     override fun onStart() {

@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.trading.CarApplication
+import com.example.trading.TradingApplication
 import com.example.trading.R
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
 import com.example.trading.databinding.FragmentPersonalPageBinding
@@ -31,7 +31,7 @@ class PersonalPageFragment : Fragment(R.layout.fragment_personal_page) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        CarApplication.appComponentWithSharedViewModel.inject(this)
+        TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

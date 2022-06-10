@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.trading.CarApplication
+import com.example.trading.TradingApplication
 import com.example.trading.databinding.ActivityForgetPasswordBinding
 import com.example.trading.registration.presentation.login.LoginActivity
 import com.example.trading.registration.presentation.login.resetPassword.actionSelectors.ChangingPasswordResult.*
@@ -20,6 +20,8 @@ import com.example.trading.registration.presentation.login.resetPassword.actionS
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
 import com.example.trading.utils.ext.dialog
 import com.example.trading.utils.ext.openActivity
+import com.example.trading.utils.ext.parsePhoneNumber
+import com.example.trading.utils.ext.toLiteVersionPhoneNumber
 import javax.inject.Inject
 
 class ForgetPasswordActivity : AppCompatActivity() {
@@ -30,7 +32,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
     lateinit var binding : ActivityForgetPasswordBinding
 
     private val forgetPasswordActivityViewModel: ForgetPasswordActivityViewModel by viewModels {
-        CarApplication.appComponentWithSharedViewModel.viewModelsFactory()
+        TradingApplication.appComponentWithSharedViewModel.viewModelsFactory()
     }
 
     private var permissionCheck = false
@@ -41,7 +43,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.sendPhone.parsePhoneNumber()
         checkPermission()
-        CarApplication.appComponentWithSharedViewModel.inject(this)
+        TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
 
     private fun checkPermission(){

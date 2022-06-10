@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: ru.tinkoff.decoro:decoro:1.1.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1498db15794514ab8e7a1625e12d09c2/transformed/decoro-1.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1498db15794514ab8e7a1625e12d09c2/transformed/decoro-1.1.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1498db15794514ab8e7a1625e12d09c2/transformed/decoro-1.1.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.tinkoff.decoro/decoro/1.1.1/2854d9c8f0c84834717a8dfabbde6f8e324a560d/decoro-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ru.tinkoff.decoro/decoro/1.1.1/b55e91ddfa62e228f38c7445da1a6bc7fd163237/decoro-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

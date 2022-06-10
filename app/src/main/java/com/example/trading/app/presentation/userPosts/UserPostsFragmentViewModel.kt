@@ -8,6 +8,7 @@ import com.example.trading.app.domain.interactors.userPostsInteractor.UserPostsI
 import com.example.trading.app.domain.models.UserPostResponse
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,15 +22,25 @@ class UserPostsFragmentViewModel @Inject constructor(
     val getPostsResult: LiveData<GetPostsResult> get() = _getPostsResult
     private val _getPostsResult = MutableLiveData<GetPostsResult>()
 
-    fun getUserPosts(documentPath: String) {
+    init {
+        getUserPosts()
+    }
+
+    private fun getUserPosts(){
         viewModelScope.launch {
             _userPosts.postValue(
                 viewModelScope.async {
                     userPostsInteractor.getUserPosts()
                 }.await()
             )
+        }
+    }
+
+    fun synchronizePosts(documentPath: String) {
+        viewModelScope.launch {
+            delay(1000)
             viewModelScope.async {
-                if (!userPosts.value.isNullOrEmpty()) {
+                if (userPosts.value.isNullOrEmpty()) {
                     _getPostsResult.postValue(
                         userPostsInteractor.getUserPostsFromFirebase(
                             documentPath

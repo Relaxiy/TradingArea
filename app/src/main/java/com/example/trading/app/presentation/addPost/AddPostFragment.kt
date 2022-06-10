@@ -14,6 +14,7 @@ import com.example.trading.databinding.FragmentAddPostBinding
 import com.example.trading.utils.ext.appComponent
 import com.example.trading.utils.ext.dialog
 import com.example.trading.utils.ext.openFragment
+import com.example.trading.utils.ext.parsePhoneNumber
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
 import kotlinx.android.synthetic.main.fragment_add_post.*
 import javax.inject.Inject

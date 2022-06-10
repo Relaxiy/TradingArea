@@ -12,7 +12,7 @@ interface UserPostsRepository {
 
     suspend fun saveUserPost(userPostEntity: UserPostEntity)
 
-    suspend fun deleteUserPost(userPostEntity: UserPostEntity)
+    suspend fun deleteUserPost(id: String)
 
     suspend fun saveUserPostInFirestore(userPost: UserPost): String
 

@@ -58,6 +58,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUserPosts()
+        observePostsResultFromServer()
     }
 
     private fun openPost(userPostResponse: UserPostResponse) {
@@ -68,9 +69,19 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
             R.id.container
         )
     }
+
     private fun initUserPosts() {
         progressUserPosts.visibility = ProgressBar.VISIBLE
-        userPostsFragmentViewModel.getUserPosts(sharedPreferences.getDocumentPath())
+        userPostsFragmentViewModel.synchronizePosts(sharedPreferences.getDocumentPath())
+
+        recycler?.adapter = adapter
+        userPostsFragmentViewModel.userPosts.observe(viewLifecycleOwner) { userPosts ->
+            binding.progressUserPosts.visibility = ProgressBar.INVISIBLE
+            adapter.setItems(userPosts)
+        }
+    }
+
+    private fun observePostsResultFromServer(){
         userPostsFragmentViewModel.getPostsResult.observe(viewLifecycleOwner){ getPostsResult ->
             when(getPostsResult){
                 is EmptyPostsResult->{
@@ -80,11 +91,6 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
                     userPostsFragmentViewModel.saveUserPostsInRoom(getPostsResult.success)
                 }
             }
-        }
-        recycler?.adapter = adapter
-        userPostsFragmentViewModel.userPosts.observe(viewLifecycleOwner) { userPosts ->
-            binding.progressUserPosts.visibility = ProgressBar.INVISIBLE
-            adapter.setItems(userPosts)
         }
     }
 }

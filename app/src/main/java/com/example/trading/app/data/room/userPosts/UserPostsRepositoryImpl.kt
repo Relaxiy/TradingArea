@@ -32,9 +32,9 @@ class UserPostsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun deleteUserPost(userPostEntity: UserPostEntity) {
+    override suspend fun deleteUserPost(id: String) {
         withContext(Dispatchers.IO){
-            userPostsDao.deleteUserPost(userPostEntity)
+            userPostsDao.deleteUserPost(id)
         }
     }
 

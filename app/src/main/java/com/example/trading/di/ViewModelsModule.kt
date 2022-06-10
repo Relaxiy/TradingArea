@@ -9,6 +9,7 @@ import com.example.trading.app.presentation.mainPage.MainPageFragmentViewModel
 import com.example.trading.app.presentation.chatsPage.messages.MessagesFragmentViewModel
 import com.example.trading.app.presentation.personalPage.PersonalPageFragmentViewModel
 import com.example.trading.app.presentation.userPosts.UserPostsFragmentViewModel
+import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragmentViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -54,4 +55,9 @@ interface ViewModelsModule {
     @IntoMap
     @ViewModelKey(MessagesFragmentViewModel::class)
     fun provideMessagesFragmentViewModel(messagesFragmentViewModel: MessagesFragmentViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserPostItemFragmentViewModel::class)
+    fun provideUserPostItemFragmentViewModel(userPostItemFragmentViewModel: UserPostItemFragmentViewModel): ViewModel
 }

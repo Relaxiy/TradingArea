@@ -36,7 +36,7 @@ class UserPostsInteractorImpl @Inject constructor(
                 GetPostsResult.SuccessResult(
                     documentsList.map { documentSnapshot ->
                         UserPostResponse(
-                            id = documentPath,
+                            id = documentSnapshot.id,
                             userId = documentSnapshot.get(KEY_USER_ID).toString(),
                             images = documentSnapshot.get(KEY_IMAGES).toString(),
                             title = documentSnapshot.get(KEY_TITLE).toString(),
@@ -63,8 +63,8 @@ class UserPostsInteractorImpl @Inject constructor(
         )
     }
 
-    override suspend fun deleteUserPostInRoom(userPostResponse: UserPostResponse) {
-        userPostsRepository.deleteUserPost(userPostResponse.toUserPostEntity())
+    override suspend fun deleteUserPostInRoom(id: String) {
+        userPostsRepository.deleteUserPost(id)
     }
 
     override suspend fun saveUserPostInFirestore(userPost: UserPost) : UserPostResponse {

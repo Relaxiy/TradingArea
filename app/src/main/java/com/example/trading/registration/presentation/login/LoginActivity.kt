@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.trading.CarApplication
+import com.example.trading.TradingApplication
 import com.example.trading.app.presentation.MainActivity
 import com.example.trading.app.presentation.personalPage.UserSharedViewModel
 import com.example.trading.databinding.ActivityLoginBinding
@@ -20,7 +20,7 @@ import javax.inject.Inject
 class LoginActivity : AppCompatActivity() {
 
     private val loginActivityViewModel: LoginActivityViewModel by viewModels {
-        CarApplication.appComponentWithSharedViewModel.viewModelsFactory()
+        TradingApplication.appComponentWithSharedViewModel.viewModelsFactory()
     }
 
     private lateinit var binding: ActivityLoginBinding
@@ -36,8 +36,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        CarApplication.initAppComponentWithSharedViewModel(this, this)
-        CarApplication.appComponentWithSharedViewModel.inject(this)
+        TradingApplication.initAppComponentWithSharedViewModel(this, this)
+        TradingApplication.appComponentWithSharedViewModel.inject(this)
 
         if (sharedPreferences.getSign()){
             binding.inputLoginEmail.setText(sharedPreferences.getEmail())
