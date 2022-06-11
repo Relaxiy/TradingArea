@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trading.R
 import com.example.trading.app.presentation.mainPage.recycler.PostAdapter
-import com.example.trading.utils.ext.appComponent
+import com.example.trading.utils.ext.mainActivityComponent
 import kotlinx.android.synthetic.main.fragment_main_page.*
 
 class MainPageFragment : Fragment(R.layout.fragment_main_page) {
@@ -18,7 +18,7 @@ class MainPageFragment : Fragment(R.layout.fragment_main_page) {
         fun newInstance() = MainPageFragment()
     }
     private val mainPageFragmentViewModel: MainPageFragmentViewModel by viewModels {
-        requireActivity().appComponent.viewModelsFactory()
+        requireActivity().mainActivityComponent.viewModelsFactory()
     }
 
     private val recycler by lazy {

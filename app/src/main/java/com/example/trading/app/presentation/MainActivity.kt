@@ -9,7 +9,6 @@ import com.example.trading.app.di.MainActivityComponent
 import com.example.trading.utils.ext.openFragment
 import com.example.trading.app.presentation.mainPage.MainPageFragment
 import com.example.trading.databinding.ActivityMainBinding
-import com.example.trading.utils.ext.appComponent
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val mainActivityViewModel: MainActivityViewModel by viewModels {
-        appComponent.viewModelsFactory()
+        mainActivityComponent.viewModelsFactory()
     }
 
     lateinit var mainActivityComponent: MainActivityComponent

@@ -20,7 +20,9 @@ class PostViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun bindItem(postItem: Post){
+        itemView.setOnClickListener {
 
+        }
     }
 
 }

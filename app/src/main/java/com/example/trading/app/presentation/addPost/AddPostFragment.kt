@@ -7,14 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.trading.R
+import com.example.trading.TradingApplication
 import com.example.trading.app.presentation.addPost.recycler.HorizontalImageAdapter
 import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.*
+import com.example.trading.app.presentation.personalPage.UserSharedViewModel
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
 import com.example.trading.databinding.FragmentAddPostBinding
-import com.example.trading.utils.ext.appComponent
-import com.example.trading.utils.ext.dialog
-import com.example.trading.utils.ext.openFragment
-import com.example.trading.utils.ext.parsePhoneNumber
+import com.example.trading.utils.ext.*
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
 import kotlinx.android.synthetic.main.fragment_add_post.*
 import javax.inject.Inject
@@ -29,10 +28,13 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
     private val binding: FragmentAddPostBinding by viewBinding()
 
     @Inject
+    lateinit var userSharedViewModel: UserSharedViewModel
+
+    @Inject
     lateinit var sharedPreferences: SharedPreferencesManager
 
     private val addPostFragmentViewModel: AddPostFragmentViewModel by viewModels {
-        requireActivity().appComponent.viewModelsFactory()
+        requireActivity().mainActivityComponent.viewModelsFactory()
     }
 
     private val recycler by lazy {
@@ -45,15 +47,23 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requireActivity().appComponent.inject(this)
+        TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.addPhoneNumber.parsePhoneNumber()
+        bindFields()
         initRecycler()
         sendPost()
     }
 
+    fun bindFields(){
+        userSharedViewModel.account.observe(viewLifecycleOwner){ account ->
+            binding.addEmail.setText(account.email)
+            binding.addPhoneNumber.setText(account.phoneNumber)
+            binding.addName.setText(account.username)
+        }
+    }
 
     private fun initRecycler() {
         recycler.adapter = adapter

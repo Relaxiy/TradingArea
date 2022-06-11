@@ -22,15 +22,11 @@ class UserPostsFragmentViewModel @Inject constructor(
     val getPostsResult: LiveData<GetPostsResult> get() = _getPostsResult
     private val _getPostsResult = MutableLiveData<GetPostsResult>()
 
-    init {
-        getUserPosts()
-    }
-
-    private fun getUserPosts(){
+    fun getUserPosts(userId: String){
         viewModelScope.launch {
             _userPosts.postValue(
                 viewModelScope.async {
-                    userPostsInteractor.getUserPosts()
+                    userPostsInteractor.getUserPosts(userId)
                 }.await()
             )
         }
@@ -51,7 +47,7 @@ class UserPostsFragmentViewModel @Inject constructor(
         }
     }
 
-    fun saveUserPostsInRoom(userPosts: List<UserPostResponse>) {
+    fun saveUserPostsInRoom(userPosts: List<UserPostResponse>, userId: String) {
         viewModelScope.launch {
             viewModelScope.async {
                 userPosts.map { userPostResponse ->
@@ -59,7 +55,7 @@ class UserPostsFragmentViewModel @Inject constructor(
                 }
             }.await()
             viewModelScope.launch {
-                _userPosts.postValue(userPostsInteractor.getUserPosts())
+                _userPosts.postValue(userPostsInteractor.getUserPosts(userId))
             }
         }
     }

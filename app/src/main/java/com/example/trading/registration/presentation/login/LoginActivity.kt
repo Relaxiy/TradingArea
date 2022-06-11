@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 is WrongResult -> dialog(WrongResult().error)
                 is InvalidInput -> dialog(InvalidInput().invalidInput)
                 is SuccessResult -> {
-                    userSharedViewModel.shareAccountIntoPersonalPage(
+                    userSharedViewModel.shareAccount(
                         accountSearchResult.accountResponse.id,
                         accountSearchResult.accountResponse.username,
                         accountSearchResult.accountResponse.email,

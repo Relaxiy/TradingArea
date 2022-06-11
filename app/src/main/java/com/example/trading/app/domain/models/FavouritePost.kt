@@ -1,7 +1,8 @@
 package com.example.trading.app.domain.models
 
 data class FavouritePost(
-    var uid: Long = 0,
+    val id: String,
+    val userId: String,
     val images: String?,
     val title: String,
     val description: String,

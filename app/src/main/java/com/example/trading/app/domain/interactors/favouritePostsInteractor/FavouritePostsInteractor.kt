@@ -5,9 +5,9 @@ import com.example.trading.app.domain.models.Post
 
 interface FavouritePostsInteractor {
 
-    suspend fun getFavouritePosts(): List<FavouritePost>
+    suspend fun getFavouritePosts(path: String): List<FavouritePost>
 
-    suspend fun saveFavouritePost(post: Post)
+    suspend fun saveFavouritePost(post: Post, path: String)
 
-    suspend fun deleteFavouritePost(favouritePost: FavouritePost)
+    suspend fun deleteFavouritePost(id: String, path: String)
 }

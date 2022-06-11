@@ -1,13 +1,10 @@
 package com.example.trading.app.presentation.userPosts.userPost
 
-import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trading.app.domain.interactors.userPostsInteractor.UserPostsInteractor
-import com.example.trading.app.domain.interactors.userPostsInteractor.UserPostsInteractorFactory
 import com.example.trading.app.domain.models.UserPostResponse
 import com.example.trading.app.presentation.userPosts.userPost.actionSelector.DeletePostResult
 import kotlinx.coroutines.async

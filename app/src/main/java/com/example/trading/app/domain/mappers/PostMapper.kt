@@ -1,9 +1,11 @@
 package com.example.trading.app.domain.mappers
 
-import com.example.trading.app.data.room.favouritePosts.models.FavouritePostEntity
 import com.example.trading.app.domain.models.Post
+import com.example.trading.app.domain.models.UserPostResponse
 
-fun Post.toSavedFavouritePostEntity() = FavouritePostEntity(
+fun UserPostResponse.toPost() = Post(
+    id = id,
+    userId = userId,
     images = images,
     title = title,
     description = description,

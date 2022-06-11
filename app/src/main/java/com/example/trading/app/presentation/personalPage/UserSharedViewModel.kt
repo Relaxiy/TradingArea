@@ -10,7 +10,7 @@ class UserSharedViewModel : ViewModel() {
     val account: LiveData<AccountResponse> get() = _account
     private val _account = MutableLiveData<AccountResponse>()
 
-    fun shareAccountIntoPersonalPage(
+    fun shareAccount(
         id: String,
         username: String,
         email: String,

@@ -6,7 +6,7 @@ import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsRes
 
 interface UserPostsInteractor {
 
-    suspend fun getUserPosts(): List<UserPostResponse>
+    suspend fun getUserPosts(userId: String): List<UserPostResponse>
 
     suspend fun getUserPostsFromFirebase(documentPath: String): GetPostsResult
 

@@ -9,7 +9,7 @@ import com.example.trading.TradingApplication
 import com.example.trading.R
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
 import com.example.trading.databinding.FragmentPersonalPageBinding
-import com.example.trading.utils.ext.appComponent
+import com.example.trading.utils.ext.mainActivityComponent
 import com.example.trading.utils.ext.openFragment
 import javax.inject.Inject
 
@@ -23,7 +23,7 @@ class PersonalPageFragment : Fragment(R.layout.fragment_personal_page) {
     private val binding: FragmentPersonalPageBinding by viewBinding()
 
     private val personalPageFragmentViewModel: PersonalPageFragmentViewModel by viewModels {
-        requireActivity().appComponent.viewModelsFactory()
+        requireActivity().mainActivityComponent.viewModelsFactory()
     }
 
     @Inject

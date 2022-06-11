@@ -1,7 +1,7 @@
 package com.example.trading.registration.di
 
 import androidx.lifecycle.ViewModel
-import com.example.trading.di.ViewModelKey
+import com.example.trading.app.di.ViewModelKey
 import com.example.trading.registration.presentation.login.LoginActivityViewModel
 import com.example.trading.registration.presentation.login.resetPassword.ForgetPasswordActivityViewModel
 import com.example.trading.registration.presentation.register.RegisterActivityViewModel

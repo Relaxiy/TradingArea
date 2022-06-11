@@ -14,7 +14,6 @@ import com.example.trading.app.presentation.userPosts.recycler.UserPostsAdapter
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragment
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemSharedViewModel
 import com.example.trading.databinding.FragmentUserPostsBinding
-import com.example.trading.utils.ext.appComponent
 import com.example.trading.utils.ext.mainActivityComponent
 import com.example.trading.utils.ext.openFragment
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
@@ -37,7 +36,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
     private val binding: FragmentUserPostsBinding by viewBinding()
 
     private val userPostsFragmentViewModel by viewModels<UserPostsFragmentViewModel> {
-        requireActivity().appComponent.viewModelsFactory()
+        requireActivity().mainActivityComponent.viewModelsFactory()
     }
 
     private val recycler by lazy {
@@ -72,23 +71,27 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
 
     private fun initUserPosts() {
         progressUserPosts.visibility = ProgressBar.VISIBLE
+        userPostsFragmentViewModel.getUserPosts(sharedPreferences.getDocumentPath())
         userPostsFragmentViewModel.synchronizePosts(sharedPreferences.getDocumentPath())
-
         recycler?.adapter = adapter
+
         userPostsFragmentViewModel.userPosts.observe(viewLifecycleOwner) { userPosts ->
             binding.progressUserPosts.visibility = ProgressBar.INVISIBLE
             adapter.setItems(userPosts)
         }
     }
 
-    private fun observePostsResultFromServer(){
-        userPostsFragmentViewModel.getPostsResult.observe(viewLifecycleOwner){ getPostsResult ->
-            when(getPostsResult){
-                is EmptyPostsResult->{
+    private fun observePostsResultFromServer() {
+        userPostsFragmentViewModel.getPostsResult.observe(viewLifecycleOwner) { getPostsResult ->
+            when (getPostsResult) {
+                is EmptyPostsResult -> {
                     binding.progressUserPosts.visibility = ProgressBar.INVISIBLE
                 }
-                is SuccessResult ->{
-                    userPostsFragmentViewModel.saveUserPostsInRoom(getPostsResult.success)
+                is SuccessResult -> {
+                    userPostsFragmentViewModel.saveUserPostsInRoom(
+                        getPostsResult.success,
+                        sharedPreferences.getDocumentPath()
+                    )
                 }
             }
         }

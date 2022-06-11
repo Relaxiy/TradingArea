@@ -7,7 +7,8 @@ import com.google.firebase.firestore.QuerySnapshot
 
 interface UserPostsRepository {
 
-    suspend fun getUserPosts(): List<UserPostEntity>
+    suspend fun getUserPosts(userId: String): List<UserPostEntity>
+
     suspend fun getUserPostsFromFirebase(documentPath: String): QuerySnapshot?
 
     suspend fun saveUserPost(userPostEntity: UserPostEntity)

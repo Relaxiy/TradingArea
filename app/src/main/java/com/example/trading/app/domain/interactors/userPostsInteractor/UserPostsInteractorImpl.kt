@@ -1,15 +1,17 @@
 package com.example.trading.app.domain.interactors.userPostsInteractor
 
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_CREATED_AT
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_DESCRIPTION
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_EMAIL
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_IMAGES
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_PHONE_NUMBER
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_PRICE
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_TITLE
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_USERNAME
-import com.example.trading.app.data.firebase.FirebasePostsDatabaseManagerImpl.Companion.KEY_USER_ID
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_CREATED_AT
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_DESCRIPTION
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_EMAIL
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_IMAGES
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_PHONE_NUMBER
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_PRICE
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_TITLE
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_USERNAME
+import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_USER_ID
+import com.example.trading.app.domain.PostsRepository
 import com.example.trading.app.domain.UserPostsRepository
+import com.example.trading.app.domain.mappers.toPost
 import com.example.trading.app.domain.mappers.toUserPostEntity
 import com.example.trading.app.domain.mappers.toUserPostResponse
 import com.example.trading.app.domain.models.UserPost
@@ -19,11 +21,12 @@ import java.lang.Exception
 import javax.inject.Inject
 
 class UserPostsInteractorImpl @Inject constructor(
-    private val userPostsRepository: UserPostsRepository
+    private val userPostsRepository: UserPostsRepository,
+    private val postsRepository: PostsRepository
 ) : UserPostsInteractor {
 
-    override suspend fun getUserPosts(): List<UserPostResponse> {
-        return userPostsRepository.getUserPosts().map { userPostEntity ->
+    override suspend fun getUserPosts(userId: String): List<UserPostResponse> {
+        return userPostsRepository.getUserPosts(userId).map { userPostEntity ->
             userPostEntity.toUserPostResponse()
         }
     }
@@ -52,7 +55,7 @@ class UserPostsInteractorImpl @Inject constructor(
             } else {
                 GetPostsResult.EmptyPostsResult()
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             GetPostsResult.EmptyPostsResult()
         }
     }
@@ -67,23 +70,16 @@ class UserPostsInteractorImpl @Inject constructor(
         userPostsRepository.deleteUserPost(id)
     }
 
-    override suspend fun saveUserPostInFirestore(userPost: UserPost) : UserPostResponse {
-       return UserPostResponse(
-           id = userPostsRepository.saveUserPostInFirestore(userPost),
-           userId = userPost.userId,
-           images = userPost.images,
-           title = userPost.title,
-           description = userPost.description,
-           price = userPost.price,
-           personName = userPost.personName,
-           email = userPost.email,
-           phoneNumber = userPost.phoneNumber,
-           date = userPost.date
-       )
+    override suspend fun saveUserPostInFirestore(userPost: UserPost): UserPostResponse {
+        val postResponse =
+            userPost.toUserPostResponse(userPostsRepository.saveUserPostInFirestore(userPost))
+        postsRepository.savePost(postResponse.toPost())
+        return postResponse
     }
 
     override suspend fun deleteUserPostInFirestore(userPostResponse: UserPostResponse) {
         userPostsRepository.deleteUserPostInFirestore(userPostResponse)
+        postsRepository.deletePost(userPostResponse.id)
     }
 
 
