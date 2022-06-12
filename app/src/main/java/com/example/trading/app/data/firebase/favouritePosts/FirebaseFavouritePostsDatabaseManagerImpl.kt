@@ -1,7 +1,7 @@
 package com.example.trading.app.data.firebase.favouritePosts
 
 import com.example.trading.app.domain.models.favourites.FavouritePost
-import com.example.trading.registration.data.utils.await
+import com.example.trading.utils.ext.await
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers

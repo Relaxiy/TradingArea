@@ -7,31 +7,64 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.example.trading.registration.presentation.dialog.ErrorEntryDialog
+import com.google.android.gms.tasks.Task
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.suspendCancellableCoroutine
 import ru.tinkoff.decoro.MaskImpl
 import ru.tinkoff.decoro.parser.PhoneNumberUnderscoreSlotsParser
 import ru.tinkoff.decoro.watchers.MaskFormatWatcher
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+
+fun <T> Context.openActivity(activity: Class<T>) {
+    val intent = Intent(this, activity)
+    startActivity(intent)
+}
 
 fun FragmentActivity.openFragment(fragment: Fragment, tag: String, id: Int) {
     supportFragmentManager
         .beginTransaction()
         .replace(id, fragment, tag)
-        .addToBackStack(tag)
         .commit()
 }
 
-fun FragmentActivity.dialog(message: String) {
-    val myDialogFragment = ErrorEntryDialog(message)
-    val manager = supportFragmentManager
-    myDialogFragment.show(manager, "myDialog")
+suspend fun <T> Task<T>.await(): T {
+    if (isComplete) {
+        val e = exception
+        return if (e == null) {
+            if (isCanceled) {
+                throw CancellationException(
+                    "Task $this was cancelled normally."
+                )
+            } else {
+                result
+            }
+        } else {
+            throw e
+        }
+    }
+
+    return suspendCancellableCoroutine { cont ->
+        addOnCompleteListener {
+            val e = exception
+            if (e == null) {
+                if (isCanceled) cont.cancel()
+                else cont.resume(result)
+            } else {
+                cont.resumeWithException(e)
+            }
+        }
+    }
 }
 
 fun String.isEmail(): Boolean {
     return Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
 
-fun <T> Context.openActivity(activity: Class<T>) {
-    val intent = Intent(this, activity)
-    startActivity(intent)
+fun FragmentActivity.dialog(message: String) {
+    val myDialogFragment = ErrorEntryDialog(message)
+    val manager = supportFragmentManager
+    myDialogFragment.show(manager, "myDialog")
 }
 
 fun EditText.parsePhoneNumber() {

@@ -92,14 +92,30 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/postEmail"
-                    android:layout_width="match_parent"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:gravity="end"
+                    android:gravity="center"
                     android:padding="10dp"
                     android:textSize="16sp"
                     tools:text="rara@gmail" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sendEmail"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/ic_share_email"
+                    android:layout_margin="10dp"
+                    android:gravity="end"
+                    android:textColor="@color/custom3"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:text="send" />
+
+
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -122,12 +138,26 @@
                     android:id="@+id/postPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:gravity="end"
+                    android:gravity="center"
                     android:padding="10dp"
                     android:textSize="16sp"
                     tools:text="+1313123" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/openPhoneNumber"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:drawablePadding="10dp"
+                    android:drawableEnd="@drawable/ic_save_phone"
+                    android:layout_margin="10dp"
+                    android:gravity="end"
+                    android:textColor="@color/custom3"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:text="call" />
             </com.google.android.material.card.MaterialCardView>
 
 

@@ -1,8 +1,8 @@
 package com.example.trading.registration.data.firebase
 
 import com.example.trading.registration.data.firebase.models.AccountEntity
-import com.example.trading.registration.data.utils.await
 import com.example.trading.registration.domain.models.SignInData
+import com.example.trading.utils.ext.await
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers

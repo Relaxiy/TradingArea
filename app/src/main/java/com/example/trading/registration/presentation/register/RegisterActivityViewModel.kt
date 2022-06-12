@@ -66,13 +66,13 @@ class RegisterActivityViewModel @Inject constructor(
 
     private fun validate(signUpData: SignUpData): Boolean {
         signUpData.apply {
-            return username.isNotEmpty() ||
-                    email.isNotEmpty() ||
-                    email.isEmail() ||
-                    birthday.isNotEmpty() ||
-                    password.isNotEmpty() ||
-                    repeatPassword.isNotEmpty() ||
-                    password == signUpData.repeatPassword ||
+            return username.isNotEmpty() &&
+                    email.isNotEmpty() &&
+                    email.isEmail() &&
+                    birthday.isNotEmpty() &&
+                    password.isNotEmpty() &&
+                    repeatPassword.isNotEmpty() &&
+                    password == signUpData.repeatPassword &&
                     password.length == 8
         }
     }

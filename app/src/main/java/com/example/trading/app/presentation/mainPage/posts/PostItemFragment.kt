@@ -1,5 +1,7 @@
 package com.example.trading.app.presentation.mainPage.posts
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -30,6 +32,8 @@ class PostItemFragment : Fragment(R.layout.fragment_post_item) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initFields()
+        sendEmail()
+        savePhone()
     }
 
     private fun initFields() {
@@ -43,6 +47,22 @@ class PostItemFragment : Fragment(R.layout.fragment_post_item) {
                 author.text = post.username
                 date.text = post.date
             }
+        }
+    }
+
+    private fun savePhone(){
+        binding.openPhoneNumber.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:" + binding.postPhoneNumber.text.toString())
+            startActivity(intent)
+        }
+    }
+
+    private fun sendEmail(){
+        binding.sendEmail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("mailto:" + binding.postEmail.text.toString())
+            startActivity(intent)
         }
     }
 }

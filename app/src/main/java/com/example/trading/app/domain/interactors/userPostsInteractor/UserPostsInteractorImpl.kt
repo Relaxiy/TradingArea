@@ -11,6 +11,7 @@ import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabase
 import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabaseManagerImpl.Companion.KEY_USER_ID
 import com.example.trading.app.domain.PostsRepository
 import com.example.trading.app.domain.UserPostsRepository
+import com.example.trading.app.domain.mappers.toListUserPostResponse
 import com.example.trading.app.domain.mappers.toPost
 import com.example.trading.app.domain.mappers.toUserPostEntity
 import com.example.trading.app.domain.mappers.toUserPostResponse
@@ -36,20 +37,7 @@ class UserPostsInteractorImpl @Inject constructor(
                 userPostsRepository.getUserPostsFromFirebase(documentPath)?.documents
             if (documentsList != null && documentsList.isNotEmpty()) {
                 GetPostsResult.SuccessResult(
-                    documentsList.map { documentSnapshot ->
-                        UserPostResponse(
-                            id = documentSnapshot.id,
-                            userId = documentSnapshot.get(KEY_USER_ID).toString(),
-                            images = documentSnapshot.get(KEY_IMAGES).toString(),
-                            title = documentSnapshot.get(KEY_TITLE).toString(),
-                            description = documentSnapshot.get(KEY_DESCRIPTION).toString(),
-                            price = documentSnapshot.get(KEY_PRICE).toString(),
-                            username = documentSnapshot.get(KEY_USERNAME).toString(),
-                            email = documentSnapshot.get(KEY_EMAIL).toString(),
-                            phoneNumber = documentSnapshot.get(KEY_PHONE_NUMBER).toString(),
-                            date = documentSnapshot.get(KEY_CREATED_AT).toString()
-                        )
-                    }
+                    documentsList.toListUserPostResponse()
                 )
             } else {
                 GetPostsResult.EmptyPostsResult()
