@@ -1,7 +1,7 @@
 package com.example.trading.app.domain.mappers
 
-import com.example.trading.app.domain.models.FavouritePost
-import com.example.trading.app.domain.models.Post
+import com.example.trading.app.domain.models.favourites.FavouritePost
+import com.example.trading.app.domain.models.mainPage.Post
 
 fun Post.toFavouritePost() = FavouritePost(
     id = id,
@@ -10,7 +10,7 @@ fun Post.toFavouritePost() = FavouritePost(
     title = title,
     description = description,
     price = price,
-    personName = personName,
+    username = username,
     email = email,
     phoneNumber = phoneNumber,
     date = date

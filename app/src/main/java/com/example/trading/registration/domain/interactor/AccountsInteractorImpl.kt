@@ -37,7 +37,7 @@ class AccountsInteractorImpl @Inject constructor(
             } else {
                 AccountSearchResult.WrongResult()
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             return AccountSearchResult.WrongResult()
         }
     }

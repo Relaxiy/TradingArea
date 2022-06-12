@@ -12,12 +12,12 @@ class FindAccountByEmailUseCaseImpl @Inject constructor(
     override suspend fun findAccountByPhoneNumber(phoneNumber: String): FindByPhoneNumberResult {
         return try {
             val task = accountsRepository.findAccountByEmail(phoneNumber)
-            if(task != null && task.documents.size > 0){
+            if (task != null && task.documents.size > 0) {
                 SuccessPhoneNumberResult(task.documents[0].id)
-            } else{
+            } else {
                 WrongPhoneNumber()
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             return ServerException()
         }
     }

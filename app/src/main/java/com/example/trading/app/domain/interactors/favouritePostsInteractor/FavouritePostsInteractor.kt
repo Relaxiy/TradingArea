@@ -1,7 +1,7 @@
 package com.example.trading.app.domain.interactors.favouritePostsInteractor
 
-import com.example.trading.app.domain.models.FavouritePost
-import com.example.trading.app.domain.models.Post
+import com.example.trading.app.domain.models.favourites.FavouritePost
+import com.example.trading.app.domain.models.mainPage.Post
 
 interface FavouritePostsInteractor {
 

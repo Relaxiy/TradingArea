@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trading.app.domain.interactors.userPostsInteractor.UserPostsInteractor
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
@@ -22,7 +22,7 @@ class UserPostsFragmentViewModel @Inject constructor(
     val getPostsResult: LiveData<GetPostsResult> get() = _getPostsResult
     private val _getPostsResult = MutableLiveData<GetPostsResult>()
 
-    fun getUserPosts(userId: String){
+    fun getUserPosts(userId: String) {
         viewModelScope.launch {
             _userPosts.postValue(
                 viewModelScope.async {

@@ -1,8 +1,8 @@
 package com.example.trading.app.presentation.userPosts.actionSelector
 
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 
-sealed class GetPostsResult{
+sealed class GetPostsResult {
     data class SuccessResult(
         val success: List<UserPostResponse>
     ) : GetPostsResult()

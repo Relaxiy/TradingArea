@@ -1,7 +1,7 @@
 package com.example.trading.app.domain.interactors.userPostsInteractor
 
-import com.example.trading.app.domain.models.UserPost
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult
 
 interface UserPostsInteractor {

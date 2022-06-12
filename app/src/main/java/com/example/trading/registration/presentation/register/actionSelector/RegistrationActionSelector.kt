@@ -1,16 +1,16 @@
 package com.example.trading.registration.presentation.register.actionSelector
 
-sealed class RegistrationActionSelector{
+sealed class RegistrationActionSelector {
     object OpenMainActivity : RegistrationActionSelector()
 
-    class ShowInvalidInputDialog: RegistrationActionSelector(){
-        companion object{
+    class ShowInvalidInputDialog : RegistrationActionSelector() {
+        companion object {
             const val MESSAGE = "Invalid input!"
         }
     }
 
-    class ShowExistingEmailDialog: RegistrationActionSelector(){
-        companion object{
+    class ShowExistingEmailDialog : RegistrationActionSelector() {
+        companion object {
             const val MESSAGE = "This account already register!"
         }
     }

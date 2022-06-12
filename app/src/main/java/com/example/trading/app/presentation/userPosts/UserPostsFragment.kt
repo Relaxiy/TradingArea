@@ -8,11 +8,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.trading.R
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult.*
 import com.example.trading.app.presentation.userPosts.recycler.UserPostsAdapter
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragment
-import com.example.trading.app.presentation.userPosts.userPost.UserPostItemSharedViewModel
+import com.example.trading.app.presentation.mainPage.PostItemSharedViewModel
 import com.example.trading.databinding.FragmentUserPostsBinding
 import com.example.trading.utils.ext.mainActivityComponent
 import com.example.trading.utils.ext.openFragment
@@ -31,16 +31,12 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
     lateinit var sharedPreferences: SharedPreferencesManager
 
     @Inject
-    lateinit var userPostItemSharedViewModel: UserPostItemSharedViewModel
+    lateinit var postItemSharedViewModel: PostItemSharedViewModel
 
     private val binding: FragmentUserPostsBinding by viewBinding()
 
     private val userPostsFragmentViewModel by viewModels<UserPostsFragmentViewModel> {
         requireActivity().mainActivityComponent.viewModelsFactory()
-    }
-
-    private val recycler by lazy {
-        view?.findViewById<RecyclerView>(R.id.recycler_user_posts)
     }
 
     private val adapter by lazy {
@@ -61,7 +57,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
     }
 
     private fun openPost(userPostResponse: UserPostResponse) {
-        userPostItemSharedViewModel.addPostOnInterface(userPostResponse)
+        postItemSharedViewModel.addUserPostOnInterface(userPostResponse)
         requireActivity().openFragment(
             UserPostItemFragment.newInstance(),
             UserPostItemFragment.TAG,
@@ -73,7 +69,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
         progressUserPosts.visibility = ProgressBar.VISIBLE
         userPostsFragmentViewModel.getUserPosts(sharedPreferences.getDocumentPath())
         userPostsFragmentViewModel.synchronizePosts(sharedPreferences.getDocumentPath())
-        recycler?.adapter = adapter
+        binding.recyclerUserPosts.adapter = adapter
 
         userPostsFragmentViewModel.userPosts.observe(viewLifecycleOwner) { userPosts ->
             binding.progressUserPosts.visibility = ProgressBar.INVISIBLE

@@ -19,10 +19,10 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:elevation="10dp"
                 app:cardCornerRadius="96dp">
 
@@ -31,14 +31,8 @@
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:background="@color/custom4"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="add image"
-                    android:textColor="@color/white" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_upload" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -51,17 +45,17 @@
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
                     android:layout_marginStart="20dp"
                     android:clickable="false"
                     android:focusable="false"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
                     tools:text="Alex" />
 
                 <ImageView
                     android:layout_width="20dp"
-                    android:layout_marginTop="14dp"
                     android:layout_height="20dp"
+                    android:layout_marginTop="14dp"
                     android:src="@drawable/ic_pencil" />
             </LinearLayout>
         </LinearLayout>
@@ -79,32 +73,22 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/email"
                 android:layout_gravity="start"
+                android:layout_margin="10dp"
+                android:text="@string/email"
                 android:textSize="20sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:focusable="false"
-                android:clickable="false"
+                android:layout_height="24dp"
                 android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_marginEnd="30dp"
-                tools:text="terer4sdf32" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_pencil" />
+                tools:text="t1@sdasd" />
         </FrameLayout>
 
         <View
@@ -120,32 +104,23 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="10dp"
                 android:layout_marginStart="16dp"
                 android:text="Phone number"
-                android:layout_gravity="start"
                 android:textSize="20sp" />
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/phoneNumber"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:focusable="false"
-                android:clickable="false"
+                android:layout_height="24dp"
                 android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
                 android:textSize="20sp"
-                android:layout_marginEnd="30dp"
-                tools:text="+375299206063" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_pencil" />
+                tools:text="+13123123123" />
         </FrameLayout>
 
         <View
@@ -161,77 +136,88 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_marginTop="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Birthday"
                 android:layout_gravity="start"
-                android:textSize="20sp" />
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/birthday"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:focusable="false"
-                android:clickable="false"
-                android:layout_gravity="end"
-                android:textSize="20sp"
-                android:layout_marginEnd="30dp"
-                tools:text="22/06/2020" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="end"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_pencil" />
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@color/custom3" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginStart="16dp"
                 android:text="Created at"
-                android:layout_gravity="start"
                 android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/createdAt"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:layout_gravity="end"
-                android:textSize="20sp"
-                android:layout_marginEnd="10dp"
+                android:layout_margin="10dp"
                 android:textColor="@color/black"
+                android:textSize="20sp"
                 tools:text="01/20/4666" />
         </FrameLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/userPosts"
-            android:background="@drawable/login_button_background"
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
+            android:layout_height="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/custom3" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Birthday"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                tools:text="22/06/2020" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/changeBirthday"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="128dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:text="change"
+                android:textColor="@color/custom3" />
+        </FrameLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userPosts"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:text="Your Posts"
+            android:textColor="@color/custom3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOut"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="128dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:text="your posts"
-            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:text="Sign out"
+            android:textColor="@color/custom3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
 

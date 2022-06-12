@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         TradingApplication.initAppComponentWithSharedViewModel(this, this)
         TradingApplication.appComponentWithSharedViewModel.inject(this)
 
-        if (sharedPreferences.getSign()){
+        if (sharedPreferences.getSign()) {
             binding.inputLoginEmail.setText(sharedPreferences.getEmail())
             binding.inputLoginPassword.setText(sharedPreferences.getPassword())
         }
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
         toRegister()
     }
 
-    private fun forgotPassword(){
+    private fun forgotPassword() {
         binding.forgotPassword.setOnClickListener {
             openActivity(ForgetPasswordActivity::class.java)
         }
@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                         accountSearchResult.accountResponse.createdAt
                     )
                     sharedPreferences.saveDocumentPath(accountSearchResult.accountResponse.id)
-                    sharedPreferences.saveSign( true)
+                    sharedPreferences.saveSign(true)
                     sharedPreferences.saveEmail(binding.inputLoginEmail.text.toString())
                     sharedPreferences.savePassword(binding.inputLoginPassword.text.toString())
                     openActivity(MainActivity::class.java)

@@ -1,8 +1,8 @@
 package com.example.trading.app.domain.mappers
 
 import com.example.trading.app.data.room.userPosts.models.UserPostEntity
-import com.example.trading.app.domain.models.UserPost
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 
 fun UserPostResponse.toUserPostEntity() = UserPostEntity(
     id = id,
@@ -11,7 +11,7 @@ fun UserPostResponse.toUserPostEntity() = UserPostEntity(
     title = title,
     description = description,
     price = price,
-    personName = personName,
+    username = username,
     email = email,
     phoneNumber = phoneNumber,
     date = date
@@ -24,7 +24,7 @@ fun UserPostEntity.toUserPostResponse() = UserPostResponse(
     title = title,
     description = description,
     price = price,
-    personName = personName,
+    username = username,
     email = email,
     phoneNumber = phoneNumber,
     date = date
@@ -37,7 +37,7 @@ fun UserPost.toUserPostResponse(id: String) = UserPostResponse(
     title = title,
     description = description,
     price = price,
-    personName = personName,
+    username = username,
     email = email,
     phoneNumber = phoneNumber,
     date = date

@@ -1,6 +1,6 @@
 package com.example.trading.app.data.firebase.posts
 
-import com.example.trading.app.domain.models.Post
+import com.example.trading.app.domain.models.mainPage.Post
 import com.example.trading.registration.data.utils.await
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -33,8 +33,8 @@ class FirebasePostsDatabaseManagerImpl @Inject constructor() : FirebasePostsData
     }
 
     override suspend fun savePost(post: Post) {
-         withContext(Dispatchers.IO) {
-              FirebaseFirestore.getInstance()
+        withContext(Dispatchers.IO) {
+            FirebaseFirestore.getInstance()
                 .collection(KEY_COLLECTION_POSTS)
                 .add(post)
                 .await()

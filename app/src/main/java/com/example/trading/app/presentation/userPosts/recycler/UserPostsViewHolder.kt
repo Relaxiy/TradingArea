@@ -3,47 +3,41 @@ package com.example.trading.app.presentation.userPosts.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trading.R
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
+import com.example.trading.databinding.PostItemBinding
+import com.example.trading.utils.ext.toDate
 
 class UserPostsViewHolder(
-    itemView: View,
-    private val openPost: (userPostResponse: UserPostResponse)-> Unit
-) : RecyclerView.ViewHolder(itemView) {
+    private val binding: PostItemBinding,
+    private val openPost: (userPostResponse: UserPostResponse) -> Unit
+) : RecyclerView.ViewHolder(binding.root) {
     companion object {
         fun newInstance(
             parent: ViewGroup,
-            openPost: (userPostResponse: UserPostResponse)-> Unit
+            openPost: (userPostResponse: UserPostResponse) -> Unit
         ) = UserPostsViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(
-                    R.layout.post_item,
-                    parent,
-                    false
-                ),
+            PostItemBinding.bind(
+                LayoutInflater.from(parent.context)
+                    .inflate(
+                        R.layout.post_item,
+                        parent,
+                        false
+                    )
+            ),
             openPost
         )
     }
 
-    private val postTitle by lazy {
-        itemView.findViewById<TextView>(R.id.post_title)
-    }
-
-    private val postPrice by lazy {
-        itemView.findViewById<TextView>(R.id.post_price)
-    }
-
-    private val postDate by lazy {
-        itemView.findViewById<TextView>(R.id.post_date)
-    }
-
-    fun bindItem(userPost: UserPostResponse){
+    fun bindItem(userPost: UserPostResponse) {
+        binding.favourite.visibility = ImageView.INVISIBLE
         userPost.apply {
-            postTitle.text = title
-            postPrice.text = price
-            postDate.text = date
+            binding.postTitle.text = title
+            binding.postPrice.text = price
+            binding.postDate.text = date.toDate()
         }
         itemView.setOnClickListener {
             openPost(userPost)

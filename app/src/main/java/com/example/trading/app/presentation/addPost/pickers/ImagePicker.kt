@@ -8,14 +8,15 @@ class ImagePicker(
     private val activityResultRegistry: ActivityResultRegistry,
     private val callback: (imageUri: Uri?) -> Unit
 ) {
-    companion object{
+    companion object {
         const val TAG = "ImagePicker"
 
     }
 
-    private val getContent = activityResultRegistry.register(TAG, ActivityResultContracts.GetContent(), callback)
+    private val getContent =
+        activityResultRegistry.register(TAG, ActivityResultContracts.GetContent(), callback)
 
-    fun pickImage(){
+    fun pickImage() {
         getContent.launch("image/*")
     }
 }

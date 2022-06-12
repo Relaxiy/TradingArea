@@ -20,11 +20,36 @@ class SharedPreferencesManagerImpl @Inject constructor(context: Context) :
         private const val STRING_DEFAULT_VALUE = ""
     }
 
-    private val prefs by lazy { context.getSharedPreferences(PREFS_NAME_IS_SIGN, Context.MODE_PRIVATE) }
-    private val prefsEmail by lazy { context.getSharedPreferences(PREFS_NAME_EMAIL, Context.MODE_PRIVATE) }
-    private val prefsPassword by lazy { context.getSharedPreferences(PREFS_NAME_PASSWORD, Context.MODE_PRIVATE) }
-    private val prefsDocumentPath by lazy { context.getSharedPreferences(PREFS_DOCUMENT_PATH, Context.MODE_PRIVATE) }
-    private val prefsCode by lazy { context.getSharedPreferences(PREFS_CODE_PATH, Context.MODE_PRIVATE) }
+    private val prefs by lazy {
+        context.getSharedPreferences(
+            PREFS_NAME_IS_SIGN,
+            Context.MODE_PRIVATE
+        )
+    }
+    private val prefsEmail by lazy {
+        context.getSharedPreferences(
+            PREFS_NAME_EMAIL,
+            Context.MODE_PRIVATE
+        )
+    }
+    private val prefsPassword by lazy {
+        context.getSharedPreferences(
+            PREFS_NAME_PASSWORD,
+            Context.MODE_PRIVATE
+        )
+    }
+    private val prefsDocumentPath by lazy {
+        context.getSharedPreferences(
+            PREFS_DOCUMENT_PATH,
+            Context.MODE_PRIVATE
+        )
+    }
+    private val prefsCode by lazy {
+        context.getSharedPreferences(
+            PREFS_CODE_PATH,
+            Context.MODE_PRIVATE
+        )
+    }
 
     override fun saveSign(value: Boolean) {
         prefs.edit()
@@ -43,7 +68,8 @@ class SharedPreferencesManagerImpl @Inject constructor(context: Context) :
     }
 
     override fun getDocumentPath(): String {
-        val documentPath = prefsDocumentPath.getString(PREFS_KEY_DOCUMENT_PATH, STRING_DEFAULT_VALUE)
+        val documentPath =
+            prefsDocumentPath.getString(PREFS_KEY_DOCUMENT_PATH, STRING_DEFAULT_VALUE)
         return documentPath ?: STRING_DEFAULT_VALUE
     }
 

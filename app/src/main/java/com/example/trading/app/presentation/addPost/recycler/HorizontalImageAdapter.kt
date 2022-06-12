@@ -4,7 +4,9 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultRegistry
 import androidx.recyclerview.widget.RecyclerView
 
-class HorizontalImageAdapter(private val activityResultRegistry: ActivityResultRegistry) : RecyclerView.Adapter<HorizontalImageViewHolder>() {
+class HorizontalImageAdapter(
+    private val activityResultRegistry: ActivityResultRegistry
+) : RecyclerView.Adapter<HorizontalImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HorizontalImageViewHolder {
         return HorizontalImageViewHolder.newInstance(parent, activityResultRegistry)

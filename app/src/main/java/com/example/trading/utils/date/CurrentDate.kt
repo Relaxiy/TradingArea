@@ -5,7 +5,7 @@ import java.util.*
 
 class CurrentDate {
 
-    companion object{
+    companion object {
         private var date = Date()
         private var formater: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
         var currentDate = formater.format(date)

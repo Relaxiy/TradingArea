@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.trading.app.domain.interactors.userPostsInteractor.UserPostsInteractor
-import com.example.trading.app.domain.models.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPost
 import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult
 import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.PostCreationFailed
 import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.PostCreationSuccess
@@ -75,7 +75,7 @@ class AddPostFragmentViewModel @Inject constructor(
             title = title,
             description = description,
             price = price,
-            personName = personName,
+            username = personName,
             email = email,
             phoneNumber = phoneNumber
         )
@@ -86,7 +86,7 @@ class AddPostFragmentViewModel @Inject constructor(
             return title.isNotEmpty() &&
                     description.isNotEmpty() &&
                     price.isNotEmpty() &&
-                    personName.isNotEmpty() &&
+                    username.isNotEmpty() &&
                     email.isNotEmpty() &&
                     phoneNumber.isNotEmpty() &&
                     email.isEmail()

@@ -1,6 +1,6 @@
 package com.example.trading.app.domain
 
-import com.example.trading.app.domain.models.FavouritePost
+import com.example.trading.app.domain.models.favourites.FavouritePost
 import com.google.firebase.firestore.QuerySnapshot
 
 interface FavouritePostsRepository {

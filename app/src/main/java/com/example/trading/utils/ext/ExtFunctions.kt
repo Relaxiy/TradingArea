@@ -25,16 +25,16 @@ fun FragmentActivity.dialog(message: String) {
     myDialogFragment.show(manager, "myDialog")
 }
 
-fun String.isEmail(): Boolean{
+fun String.isEmail(): Boolean {
     return Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }
 
-fun <T> Context.openActivity(activity: Class<T>){
+fun <T> Context.openActivity(activity: Class<T>) {
     val intent = Intent(this, activity)
     startActivity(intent)
 }
 
-fun EditText.parsePhoneNumber(){
+fun EditText.parsePhoneNumber() {
     val slots = PhoneNumberUnderscoreSlotsParser().parseSlots("+375 (__) ___-____");
     val inputMask = MaskImpl.createTerminated(slots);
     val formatWatcher = MaskFormatWatcher(inputMask)
@@ -48,6 +48,11 @@ fun String.toLiteVersionPhoneNumber(): String {
     val secondPartNumber = this.substring(14)
     return countryCode + networkCode + firstPartNumber + secondPartNumber
 }
+
+fun String.toDate(): String {
+    return this.substring(0, 10)
+}
+
 
 
 

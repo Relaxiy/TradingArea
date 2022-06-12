@@ -1,7 +1,6 @@
 package com.example.trading.app.data.firebase.favouritePosts
 
-import com.example.trading.app.domain.models.FavouritePost
-import com.example.trading.app.domain.models.Post
+import com.example.trading.app.domain.models.favourites.FavouritePost
 import com.google.firebase.firestore.QuerySnapshot
 
 interface FirebaseFavouritePostsDatabaseManager {

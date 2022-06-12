@@ -9,15 +9,19 @@ import com.example.trading.registration.di.DaggerAppComponentWithSharedViewModel
 
 class TradingApplication : Application() {
 
-    companion object{
-    lateinit var appComponentWithSharedViewModel: AppComponentWithSharedViewModel
-    fun initAppComponentWithSharedViewModel(viewModelStoreOwner: ViewModelStoreOwner, context: Context) {
-        appComponentWithSharedViewModel = DaggerAppComponentWithSharedViewModel.builder()
-            .viewStore(viewModelStoreOwner)
-            .context(context)
-            .build()
+    companion object {
+        lateinit var appComponentWithSharedViewModel: AppComponentWithSharedViewModel
+        fun initAppComponentWithSharedViewModel(
+            viewModelStoreOwner: ViewModelStoreOwner,
+            context: Context
+        ) {
+            appComponentWithSharedViewModel = DaggerAppComponentWithSharedViewModel.builder()
+                .viewStore(viewModelStoreOwner)
+                .context(context)
+                .build()
+        }
     }
-    }
+
     override fun onCreate() {
         super.onCreate()
     }

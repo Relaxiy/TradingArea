@@ -4,8 +4,8 @@ import com.example.trading.app.data.firebase.userPosts.FirebaseUserPostsDatabase
 import com.example.trading.app.data.room.userPosts.dao.UserPostsDao
 import com.example.trading.app.data.room.userPosts.models.UserPostEntity
 import com.example.trading.app.domain.UserPostsRepository
-import com.example.trading.app.domain.models.UserPost
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -33,7 +33,7 @@ class UserPostsRepositoryImpl @Inject constructor(
     }
 
     override suspend fun deleteUserPost(id: String) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             userPostsDao.deleteUserPost(id)
         }
     }

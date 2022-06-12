@@ -8,12 +8,16 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.trading.R
 import com.example.trading.TradingApplication
+import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.PostCreationFailed
+import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.PostCreationSuccess
 import com.example.trading.app.presentation.addPost.recycler.HorizontalImageAdapter
-import com.example.trading.app.presentation.addPost.actionSelector.CreateUserPostResult.*
 import com.example.trading.app.presentation.personalPage.UserSharedViewModel
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
 import com.example.trading.databinding.FragmentAddPostBinding
-import com.example.trading.utils.ext.*
+import com.example.trading.utils.ext.dialog
+import com.example.trading.utils.ext.mainActivityComponent
+import com.example.trading.utils.ext.openFragment
+import com.example.trading.utils.ext.parsePhoneNumber
 import com.example.trading.utils.sharedPrefs.SharedPreferencesManager
 import kotlinx.android.synthetic.main.fragment_add_post.*
 import javax.inject.Inject
@@ -49,6 +53,7 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         super.onCreate(savedInstanceState)
         TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.addPhoneNumber.parsePhoneNumber()
@@ -57,8 +62,8 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         sendPost()
     }
 
-    fun bindFields(){
-        userSharedViewModel.account.observe(viewLifecycleOwner){ account ->
+    fun bindFields() {
+        userSharedViewModel.account.observe(viewLifecycleOwner) { account ->
             binding.addEmail.setText(account.email)
             binding.addPhoneNumber.setText(account.phoneNumber)
             binding.addName.setText(account.username)
@@ -86,7 +91,11 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         addPostFragmentViewModel.validateUserPostResponse.observe(viewLifecycleOwner) { createUserPostResult ->
             when (createUserPostResult) {
                 is PostCreationSuccess -> {
-                    Toast.makeText(requireContext(), createUserPostResult.success, Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        requireContext(),
+                        createUserPostResult.success,
+                        Toast.LENGTH_LONG
+                    ).show()
                     requireActivity().apply {
                         openFragment(
                             UserPostsFragment.newInstance(),

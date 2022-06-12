@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import com.example.trading.app.presentation.MainActivityViewModel
 import com.example.trading.app.presentation.addPost.AddPostFragmentViewModel
 import com.example.trading.app.presentation.chatsPage.ChatsFragmentViewModel
+import com.example.trading.app.presentation.chatsPage.messages.MessagesFragmentViewModel
 import com.example.trading.app.presentation.favouritePosts.FavouritePostsFragmentViewModel
 import com.example.trading.app.presentation.mainPage.MainPageFragmentViewModel
-import com.example.trading.app.presentation.chatsPage.messages.MessagesFragmentViewModel
 import com.example.trading.app.presentation.personalPage.PersonalPageFragmentViewModel
 import com.example.trading.app.presentation.userPosts.UserPostsFragmentViewModel
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragmentViewModel

@@ -14,7 +14,7 @@ class RoomModule {
 
     @Provides
     @Singleton
-    fun provideUserPostsDao(database: AppDatabase): UserPostsDao{
+    fun provideUserPostsDao(database: AppDatabase): UserPostsDao {
         return database.getUserPostsDao()
     }
 

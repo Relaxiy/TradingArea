@@ -1,8 +1,8 @@
 package com.example.trading.app.domain
 
 import com.example.trading.app.data.room.userPosts.models.UserPostEntity
-import com.example.trading.app.domain.models.UserPost
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.google.firebase.firestore.QuerySnapshot
 
 interface UserPostsRepository {

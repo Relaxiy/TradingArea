@@ -14,10 +14,9 @@ import com.example.trading.app.domain.UserPostsRepository
 import com.example.trading.app.domain.mappers.toPost
 import com.example.trading.app.domain.mappers.toUserPostEntity
 import com.example.trading.app.domain.mappers.toUserPostResponse
-import com.example.trading.app.domain.models.UserPost
-import com.example.trading.app.domain.models.UserPostResponse
+import com.example.trading.app.domain.models.userPosts.UserPost
+import com.example.trading.app.domain.models.userPosts.UserPostResponse
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult
-import java.lang.Exception
 import javax.inject.Inject
 
 class UserPostsInteractorImpl @Inject constructor(
@@ -45,7 +44,7 @@ class UserPostsInteractorImpl @Inject constructor(
                             title = documentSnapshot.get(KEY_TITLE).toString(),
                             description = documentSnapshot.get(KEY_DESCRIPTION).toString(),
                             price = documentSnapshot.get(KEY_PRICE).toString(),
-                            personName = documentSnapshot.get(KEY_USERNAME).toString(),
+                            username = documentSnapshot.get(KEY_USERNAME).toString(),
                             email = documentSnapshot.get(KEY_EMAIL).toString(),
                             phoneNumber = documentSnapshot.get(KEY_PHONE_NUMBER).toString(),
                             date = documentSnapshot.get(KEY_CREATED_AT).toString()

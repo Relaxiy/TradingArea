@@ -2,6 +2,8 @@ package com.example.trading.app.di
 
 import android.content.Context
 import androidx.lifecycle.ViewModelStoreOwner
+import com.example.trading.app.presentation.mainPage.MainPageFragment
+import com.example.trading.app.presentation.mainPage.posts.PostItemFragment
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragment
 import dagger.BindsInstance
@@ -36,4 +38,6 @@ interface MainActivityComponent {
     fun viewModelsFactory(): ViewModelFactory
     fun inject(userPostItemFragment: UserPostItemFragment)
     fun inject(userPostsFragment: UserPostsFragment)
+    fun inject(mainPageFragment: MainPageFragment)
+    fun inject(postItemFragment: PostItemFragment)
 }

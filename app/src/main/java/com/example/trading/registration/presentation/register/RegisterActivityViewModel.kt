@@ -13,8 +13,9 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class RegisterActivityViewModel @Inject constructor(private val accountsInteractor: AccountsInteractor) :
-    ViewModel() {
+class RegisterActivityViewModel @Inject constructor(
+    private val accountsInteractor: AccountsInteractor
+) : ViewModel() {
 
     val result: LiveData<RegistrationActionSelector> get() = _result
     private val _result = MutableLiveData<RegistrationActionSelector>()
@@ -27,7 +28,8 @@ class RegisterActivityViewModel @Inject constructor(private val accountsInteract
         password: String,
         repeatPassword: String
     ) {
-        val account = createAccount(username, email, phoneNumber, birthday, password, repeatPassword)
+        val account =
+            createAccount(username, email, phoneNumber, birthday, password, repeatPassword)
         if (validate(account)) {
             viewModelScope.launch {
                 _result.value = viewModelScope.async {

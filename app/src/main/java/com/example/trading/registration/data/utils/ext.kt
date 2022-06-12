@@ -13,7 +13,8 @@ suspend fun <T> Task<T>.await(): T {
         return if (e == null) {
             if (isCanceled) {
                 throw CancellationException(
-                    "Task $this was cancelled normally.")
+                    "Task $this was cancelled normally."
+                )
             } else {
                 result
             }

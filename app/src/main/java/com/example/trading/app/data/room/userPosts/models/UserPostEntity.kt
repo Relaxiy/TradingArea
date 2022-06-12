@@ -22,13 +22,13 @@ data class UserPostEntity(
     @ColumnInfo(name = "price")
     val price: String,
     @ColumnInfo(name = "person_name")
-    val personName: String,
+    val username: String,
     @ColumnInfo(name = "email")
     val email: String,
     @ColumnInfo(name = "phone_number")
     val phoneNumber: String,
     @ColumnInfo(name = "current_date")
-    var date: String
+    val date: String
 ) {
     companion object {
         const val TABLE_NAME = "user_posts"

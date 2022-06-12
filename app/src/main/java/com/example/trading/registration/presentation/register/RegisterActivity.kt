@@ -88,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
         registerActivityViewModel.result.observe(this) { registrationActionSelector ->
             when (registrationActionSelector) {
                 is OpenMainActivity -> {
-                    sharedPreferences.saveSign( true)
+                    sharedPreferences.saveSign(true)
                     sharedPreferences.saveEmail(binding.inputEmail.text.toString())
                     sharedPreferences.savePassword(binding.inputPasswordFirst.text.toString())
                     openActivity(LoginActivity::class.java)

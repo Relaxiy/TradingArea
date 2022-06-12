@@ -1,6 +1,6 @@
 package com.example.trading.app.data.firebase.favouritePosts
 
-import com.example.trading.app.domain.models.FavouritePost
+import com.example.trading.app.domain.models.favourites.FavouritePost
 import com.example.trading.registration.data.utils.await
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
@@ -8,7 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class FirebaseFavouritePostsDatabaseManagerImpl @Inject constructor() : FirebaseFavouritePostsDatabaseManager {
+class FirebaseFavouritePostsDatabaseManagerImpl @Inject constructor() :
+    FirebaseFavouritePostsDatabaseManager {
     companion object {
         const val KEY_COLLECTION_USERS = "users"
         const val KEY_COLLECTION_FAVOURITE_POSTS = "favourites"

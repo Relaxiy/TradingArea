@@ -29,7 +29,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
     @Inject
     lateinit var sharedPreferences: SharedPreferencesManager
 
-    lateinit var binding : ActivityForgetPasswordBinding
+    lateinit var binding: ActivityForgetPasswordBinding
 
     private val forgetPasswordActivityViewModel: ForgetPasswordActivityViewModel by viewModels {
         TradingApplication.appComponentWithSharedViewModel.viewModelsFactory()
@@ -46,9 +46,10 @@ class ForgetPasswordActivity : AppCompatActivity() {
         TradingApplication.appComponentWithSharedViewModel.inject(this)
     }
 
-    private fun checkPermission(){
+    private fun checkPermission() {
         val requestSinglePermission = registerForActivityResult(
-            ActivityResultContracts.RequestPermission()) {
+            ActivityResultContracts.RequestPermission()
+        ) {
             permissionCheck = it
         }
         if (!permissionCheck) {
@@ -74,13 +75,17 @@ class ForgetPasswordActivity : AppCompatActivity() {
             if (binding.code.visibility == EditText.INVISIBLE && binding.changePassword.visibility == EditText.INVISIBLE) {
                 binding.progressForgetEntity.visibility = ProgressBar.VISIBLE
                 forgetPasswordActivityViewModel.sendEmail(binding.sendPhone.text.toString())
-            }
-            else if (binding.code.visibility == EditText.VISIBLE && binding.changePassword.visibility == EditText.INVISIBLE){
-                forgetPasswordActivityViewModel.validateCode(binding.code.text.toString(), sharedPreferences.getCode())
-            }
-            else if (binding.code.visibility == EditText.INVISIBLE && binding.changePassword.visibility == EditText.VISIBLE){
+            } else if (binding.code.visibility == EditText.VISIBLE && binding.changePassword.visibility == EditText.INVISIBLE) {
+                forgetPasswordActivityViewModel.validateCode(
+                    binding.code.text.toString(),
+                    sharedPreferences.getCode()
+                )
+            } else if (binding.code.visibility == EditText.INVISIBLE && binding.changePassword.visibility == EditText.VISIBLE) {
                 binding.progressForgetEntity.visibility = ProgressBar.VISIBLE
-                forgetPasswordActivityViewModel.changePassword(binding.changePassword.text.toString(), sharedPreferences.getDocumentPath())
+                forgetPasswordActivityViewModel.changePassword(
+                    binding.changePassword.text.toString(),
+                    sharedPreferences.getDocumentPath()
+                )
             }
         }
     }
@@ -109,7 +114,7 @@ class ForgetPasswordActivity : AppCompatActivity() {
                             binding.sendPhone.focusable = EditText.NOT_FOCUSABLE
                         }
                         sharedPreferences.saveDocumentPath(findAccountByPhoneNumberResult.userId)
-                    } else if (!permissionCheck && binding.code.visibility == EditText.INVISIBLE){
+                    } else if (!permissionCheck && binding.code.visibility == EditText.INVISIBLE) {
                         dialog("Change SMS permission in settings and restart this app")
                     }
                 }
@@ -155,9 +160,15 @@ class ForgetPasswordActivity : AppCompatActivity() {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 
-    private fun sendSMS(phoneNumber: String){
+    private fun sendSMS(phoneNumber: String) {
         val rand = (100000..999999).random()
         sharedPreferences.saveSendingCode(rand.toString())
-        SmsManager.getDefault().sendTextMessage(binding.sendPhone.text.toString().toLiteVersionPhoneNumber(), null, rand.toString(), null, null)
+        SmsManager.getDefault().sendTextMessage(
+            binding.sendPhone.text.toString().toLiteVersionPhoneNumber(),
+            null,
+            rand.toString(),
+            null,
+            null
+        )
     }
 }

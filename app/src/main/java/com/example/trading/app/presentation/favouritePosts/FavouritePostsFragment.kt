@@ -22,7 +22,4 @@ class FavouritePostsFragment : Fragment(R.layout.fragment_favourite_posts) {
 
     private val binding: FragmentFavouritePostsBinding by viewBinding()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
 }

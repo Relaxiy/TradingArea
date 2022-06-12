@@ -8,7 +8,7 @@ interface AccountsRepository {
 
     suspend fun findAccountByEmailAndPassword(signInData: SignInData): QuerySnapshot?
 
-    suspend fun findAccountByEmail(email: String): QuerySnapshot?
+    suspend fun findAccountByEmail(phoneNumber: String): QuerySnapshot?
 
     suspend fun createAccount(signUpData: SignUpData)
 

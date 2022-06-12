@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mainActivityComponent = DaggerMainActivityComponent.builder()
-                .context(this)
-                .viewStore(this)
-                .build()
+            .context(this)
+            .viewStore(this)
+            .build()
 
         initHomeFragment()
     }

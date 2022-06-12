@@ -28,7 +28,7 @@ class AccountsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun changePassword(password: String, documentPath: String){
+    override suspend fun changePassword(password: String, documentPath: String) {
         firebaseUsersDatabaseManager.changePassword(password, documentPath)
     }
 }
