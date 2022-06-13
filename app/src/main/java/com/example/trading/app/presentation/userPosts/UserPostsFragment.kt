@@ -2,6 +2,7 @@ package com.example.trading.app.presentation.userPosts
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.trading.R
 import com.example.trading.app.domain.models.userPosts.UserPostResponse
+import com.example.trading.app.presentation.addPost.AddPostFragment
 import com.example.trading.app.presentation.userPosts.actionSelector.GetPostsResult.*
 import com.example.trading.app.presentation.userPosts.recycler.UserPostsAdapter
 import com.example.trading.app.presentation.userPosts.userPost.UserPostItemFragment
@@ -54,6 +56,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
         super.onViewCreated(view, savedInstanceState)
         initUserPosts()
         observePostsResultFromServer()
+        addPost()
     }
 
     private fun openPost(userPostResponse: UserPostResponse) {
@@ -81,6 +84,7 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
         userPostsFragmentViewModel.getPostsResult.observe(viewLifecycleOwner) { getPostsResult ->
             when (getPostsResult) {
                 is EmptyPostsResult -> {
+                    binding.imageAddUserPost.visibility = ImageView.VISIBLE
                     binding.progressUserPosts.visibility = ProgressBar.INVISIBLE
                 }
                 is SuccessResult -> {
@@ -90,6 +94,16 @@ class UserPostsFragment : Fragment(R.layout.fragment_user_posts) {
                     )
                 }
             }
+        }
+    }
+
+    private fun addPost(){
+        binding.imageAddUserPost.setOnClickListener {
+            requireActivity().openFragment(
+                AddPostFragment.newInstance(),
+                AddPostFragment.TAG,
+                R.id.container
+            )
         }
     }
 }

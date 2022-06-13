@@ -9,9 +9,10 @@ import dagger.Provides
 @Module
 class SharedViewModule {
     @Provides
-    fun provideUserSharedViewModel(
+    fun providePostItemSharedViewModel(
         viewModelStoreOwner: ViewModelStoreOwner
     ): PostItemSharedViewModel {
         return ViewModelProvider(viewModelStoreOwner)[PostItemSharedViewModel::class.java]
     }
+
 }

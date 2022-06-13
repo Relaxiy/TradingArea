@@ -19,9 +19,9 @@
             android:id="@+id/add_image"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:background="@color/custom3"
+            android:background="@color/background_lite_color"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_upload" />
+            android:src="@drawable/ic_add" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

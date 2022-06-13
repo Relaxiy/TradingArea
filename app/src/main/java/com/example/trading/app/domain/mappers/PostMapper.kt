@@ -24,14 +24,14 @@ fun UserPostResponse.toPost() = Post(
 
 fun QuerySnapshot.toBaseItems(userId: String): List<BaseItem> {
     val items = mutableListOf<BaseItem>()
-
-    this.forEachIndexed { index, item ->
+    val reversedList = this.documents.reversed()
+    reversedList.forEachIndexed { index, item ->
         if (index == 0) {
             items.add(
                 Date(item.get(FirebasePostsDatabaseManagerImpl.KEY_CREATED_AT).toString().toDate())
             )
         } else if (item.get(FirebasePostsDatabaseManagerImpl.KEY_CREATED_AT).toString().toDate()
-            != this.documents[index - 1].get(FirebasePostsDatabaseManagerImpl.KEY_CREATED_AT)
+            != reversedList[index - 1].get(FirebasePostsDatabaseManagerImpl.KEY_CREATED_AT)
                 .toString().toDate()
         ) {
             items.add(

@@ -5,9 +5,10 @@ import java.util.*
 
 class CurrentDate {
 
-    companion object {
-        private var date = Date()
-        private var formater: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
-        var currentDate = formater.format(date)
+
+    fun getDate(): String {
+        val date = Date()
+        val formater = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
+        return formater.format(date)
     }
 }

@@ -11,5 +11,5 @@ data class UserPost(
     val username: String,
     val email: String,
     val phoneNumber: String,
-    var date: String = CurrentDate.currentDate
+    var date: String = CurrentDate().getDate()
 )

@@ -7,7 +7,6 @@ import com.example.trading.R
 import com.example.trading.app.domain.models.mainPage.BaseItem
 import com.example.trading.app.domain.models.mainPage.Post
 import com.example.trading.app.presentation.mainPage.recycler.BaseViewHolder
-import com.example.trading.databinding.DateItemBinding
 import com.example.trading.databinding.PostItemBinding
 import com.example.trading.utils.ext.toDate
 

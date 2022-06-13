@@ -3,6 +3,7 @@ package com.example.trading.app.data.firebase.posts
 import com.example.trading.app.domain.models.mainPage.Post
 import com.example.trading.utils.ext.await
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -27,6 +28,7 @@ class FirebasePostsDatabaseManagerImpl @Inject constructor() : FirebasePostsData
         return withContext(Dispatchers.IO) {
             return@withContext FirebaseFirestore.getInstance()
                 .collection(KEY_COLLECTION_POSTS)
+                .orderBy(KEY_CREATED_AT)
                 .get()
                 .await()
         }

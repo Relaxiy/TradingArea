@@ -3,8 +3,8 @@ package com.example.trading
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.ViewModelStoreOwner
-import com.example.trading.registration.di.AppComponentWithSharedViewModel
-import com.example.trading.registration.di.DaggerAppComponentWithSharedViewModel
+import com.example.trading.di.AppComponentWithSharedViewModel
+import com.example.trading.di.DaggerAppComponentWithSharedViewModel
 
 
 class TradingApplication : Application() {

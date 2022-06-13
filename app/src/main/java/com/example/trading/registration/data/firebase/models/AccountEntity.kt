@@ -8,5 +8,5 @@ data class AccountEntity(
     val phoneNumber: String,
     val birthday: String,
     val password: String,
-    val createdAt: String = CurrentDate.currentDate
+    val createdAt: String = CurrentDate().getDate()
 )

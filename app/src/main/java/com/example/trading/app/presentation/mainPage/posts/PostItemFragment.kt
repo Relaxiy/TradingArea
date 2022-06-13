@@ -7,10 +7,12 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.trading.R
-import com.example.trading.app.presentation.favouritePosts.FavouritePostsFragment
+import com.example.trading.app.presentation.chatsPage.messages.MessagesFragment
 import com.example.trading.app.presentation.mainPage.PostItemSharedViewModel
 import com.example.trading.databinding.FragmentPostItemBinding
 import com.example.trading.utils.ext.mainActivityComponent
+import com.example.trading.utils.ext.openFragment
+import com.example.trading.utils.ext.toDate
 import javax.inject.Inject
 
 class PostItemFragment : Fragment(R.layout.fragment_post_item) {
@@ -34,6 +36,7 @@ class PostItemFragment : Fragment(R.layout.fragment_post_item) {
         initFields()
         sendEmail()
         savePhone()
+        startChat()
     }
 
     private fun initFields() {
@@ -45,7 +48,7 @@ class PostItemFragment : Fragment(R.layout.fragment_post_item) {
                 postEmail.text = post.email
                 postPhoneNumber.text = post.phoneNumber
                 author.text = post.username
-                date.text = post.date
+                date.text = post.date.toDate()
             }
         }
     }
@@ -63,6 +66,13 @@ class PostItemFragment : Fragment(R.layout.fragment_post_item) {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("mailto:" + binding.postEmail.text.toString())
             startActivity(intent)
+        }
+    }
+
+    private fun startChat(){
+        binding.startMessaging.setOnClickListener {
+
+            requireActivity().openFragment(MessagesFragment.newInstance(), MessagesFragment.TAG, R.id.container)
         }
     }
 }

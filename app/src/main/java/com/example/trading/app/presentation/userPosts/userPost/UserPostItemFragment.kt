@@ -17,6 +17,7 @@ import com.example.trading.app.presentation.userPosts.userPost.actionSelector.De
 import com.example.trading.databinding.FragmentUserPostItemBinding
 import com.example.trading.utils.ext.mainActivityComponent
 import com.example.trading.utils.ext.openFragment
+import com.example.trading.utils.ext.toDate
 import com.google.android.material.button.MaterialButton
 import javax.inject.Inject
 
@@ -54,7 +55,7 @@ class UserPostItemFragment : Fragment(R.layout.fragment_user_post_item) {
             binding.postEmail.text = userPostResponse.email
             binding.postPhoneNumber.text = userPostResponse.phoneNumber
             binding.author.text = userPostResponse.username
-            binding.date.text = userPostResponse.date
+            binding.date.text = userPostResponse.date.toDate()
             userPostItemFragmentViewModel.saveData(userPostResponse)
         }
     }
