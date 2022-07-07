@@ -40,8 +40,13 @@ class LoginActivity : AppCompatActivity() {
         TradingApplication.appComponentWithSharedViewModel.inject(this)
 
         if (sharedPreferences.getSign()) {
+            binding.progressLogin.visibility = ProgressBar.VISIBLE
             binding.inputLoginEmail.setText(sharedPreferences.getEmail())
             binding.inputLoginPassword.setText(sharedPreferences.getPassword())
+            loginActivityViewModel.signIn(
+                binding.inputLoginEmail.text.toString(),
+                binding.inputLoginPassword.text.toString()
+            )
         }
     }
 

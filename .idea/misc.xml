@@ -114,21 +114,31 @@
         <entry key="..\:/Sobes_Kotlin/MyKotlinProject/app/src/main/res/layout/post_item.xml" value="0.3625" />
         <entry key="..\:/Sobes_Kotlin/MyKotlinProject/app/src/main/res/menu/bottom_menu.xml" value="0.18541666666666667" />
         <entry key="..\:/Sobes_Kotlin/MyKotlinProject/app/src/main/res/menu/right_menu.xml" value="0.3625" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable-v24/ic_bookmark2.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/background_recieve_image.xml" value="0.2095" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/chat_background.xml" value="0.1995" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/chat_background_input.xml" value="0.1995" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/circle_background.xml" value="0.2705" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/dialog_background.xml" value="0.139" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/edit_text_login_background.xml" value="0.19" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/favourites_selector.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_add.xml" value="0.2095" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_add_post.xml" value="0.2095" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_add_post_item.xml" value="0.2095" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_bookmark.xml" value="0.19" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_bookmark2.xml" value="0.19" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_bookmark_empty_svgrepo_com.xml" value="0.19" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_date.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_email_share.xml" value="0.1995" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_favourites.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_like.xml" value="0.271" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_message.xml" value="0.1995" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_message_2.xml" value="0.1995" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_money.xml" value="0.2095" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_nav_corners.xml" value="0.1995" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_pencil.xml" value="0.19" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_phone_svgrepo_com.xml" value="0.1995" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_post.xml" value="0.2095" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/drawable/ic_title.xml" value="0.2095" />
@@ -146,6 +156,7 @@
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/chat_item.xml" value="0.33" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/custom_dialog_layout.xml" value="0.33" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/date_item.xml" value="0.33" />
+        <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/favourite_post.xml" value="0.3625" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/favourite_post_item.xml" value="0.3625" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/fragment_add_post.xml" value="0.25" />
         <entry key="..\:/tradingArea/TradingArea/app/src/main/res/layout/fragment_chats.xml" value="0.3625" />

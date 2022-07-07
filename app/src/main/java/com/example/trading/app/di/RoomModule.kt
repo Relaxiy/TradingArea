@@ -2,6 +2,7 @@ package com.example.trading.app.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.trading.app.data.room.favouritePosts.dao.FavouritePostsDao
 import com.example.trading.app.data.room.userPosts.dao.UserPostsDao
 import com.example.trading.roomDatabase.AppDatabase
 import dagger.Module
@@ -16,6 +17,12 @@ class RoomModule {
     @Singleton
     fun provideUserPostsDao(database: AppDatabase): UserPostsDao {
         return database.getUserPostsDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavouritePostsDao(database: AppDatabase): FavouritePostsDao {
+        return database.getFavouritePostsDao()
     }
 
     @Provides

@@ -42,6 +42,16 @@ class PostViewHolder(
         binding.postItem.setOnClickListener {
             openPost(VIEW_TYPE, baseItem)
         }
+        var counter = 0
+        binding.favourite.setOnClickListener {
+            if (counter == 0) {
+                binding.favourite.setImageResource(R.drawable.ic_filled_bookmark)
+                counter = 1
+            }else{
+                binding.favourite.setImageResource(R.drawable.ic_bookmark)
+                counter = 0
+            }
+        }
     }
 
 }

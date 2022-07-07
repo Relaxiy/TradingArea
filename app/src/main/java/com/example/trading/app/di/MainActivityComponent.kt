@@ -3,6 +3,7 @@ package com.example.trading.app.di
 import android.content.Context
 import androidx.lifecycle.ViewModelStoreOwner
 import com.example.trading.app.presentation.chatsPage.messages.MessagesFragment
+import com.example.trading.app.presentation.favouritePosts.FavouritePostsFragment
 import com.example.trading.app.presentation.mainPage.MainPageFragment
 import com.example.trading.app.presentation.mainPage.posts.PostItemFragment
 import com.example.trading.app.presentation.userPosts.UserPostsFragment
@@ -38,6 +39,7 @@ interface MainActivityComponent {
 
     fun viewModelsFactory(): ViewModelFactory
     fun inject(userPostItemFragment: UserPostItemFragment)
+    fun inject(favouritePostsFragment: FavouritePostsFragment)
     fun inject(userPostsFragment: UserPostsFragment)
     fun inject(mainPageFragment: MainPageFragment)
     fun inject(postItemFragment: PostItemFragment)

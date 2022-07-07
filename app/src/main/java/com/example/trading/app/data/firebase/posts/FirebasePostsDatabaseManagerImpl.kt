@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class FirebasePostsDatabaseManagerImpl @Inject constructor() : FirebasePostsDatabaseManager {
+
     companion object {
         const val KEY_COLLECTION_POSTS = "posts"
         const val KEY_ID = "id"
